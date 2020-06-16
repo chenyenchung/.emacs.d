@@ -10,6 +10,16 @@
 ;; Activate Vim-mode at start up
 (evil-mode 1)
 
+;; Ask dired to display human-readable size
+(setq dired-listing-switches "-alFh")
+
+;; Enable ace-window
+(require 'ace-window)
+(global-set-key (kbd "C-x o") 'ace-window)
+
+;; Enable company-mode globally
+(add-hook 'after-init-hook 'global-company-mode)
+
 ;; Assign R executable path
 (setq inferior-ess-r-program "/usr/local/bin/R")
 
@@ -18,6 +28,11 @@
 ;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;;;;  This is your old M-x.
 ;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+
+;; Load settings for individual packages
+(require 'init-helm)
+(require 'init-org)
 
 (package-initialize)
 (provide 'init-pkg)
